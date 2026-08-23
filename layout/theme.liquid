@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <title>{{ shop.name }} — Muy pronto</title>
+  <meta name="description" content="Voltrix: todo lo que necesitas para rendir cada día, en una sola toma. Únete a la lista de espera y recibe la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.">
+
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:title" content="{{ shop.name }} — Muy pronto">
+  <meta property="og:description" content="Únete a la lista de espera y recibe la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  {{ content_for_header }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+
+  {% if settings.favicon %}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {% endif %}
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #0A0A1A; }
+  </style>
+</head>
+<body>
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+</body>
+</html>
