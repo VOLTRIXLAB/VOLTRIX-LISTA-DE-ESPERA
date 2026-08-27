@@ -5,22 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="{{ canonical_url }}">
 
-  <title>{{ shop.name }} — Muy pronto</title>
-  <meta name="description" content="Voltrix: todo lo que necesitas para rendir cada día, en una sola toma. Únete a la lista de espera y recibe la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.">
+  <title>
+    {%- if request.page_type == 'index' -%}
+      {{ shop.name }} — Muy pronto
+    {%- else -%}
+      {{ page_title }} — {{ shop.name }}
+    {%- endif -%}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% else %}
+    <meta name="description" content="Voltrix: todo lo que necesitas para rendir cada día, en una sola toma. Únete a la lista de espera y recibe la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.">
+  {% endif %}
 
   {% comment %} ── Open Graph (Facebook, WhatsApp, LinkedIn...) ── {% endcomment %}
   <meta property="og:site_name" content="{{ shop.name }}">
   <meta property="og:url" content="{{ canonical_url }}">
-  <meta property="og:title" content="{{ shop.name }} — Muy pronto">
-  <meta property="og:description" content="Todo lo que necesitas para rendir cada día, en una sola toma. Únete a la lista y llévate la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.">
+  <meta property="og:title" content="{% if request.page_type == 'index' %}{{ shop.name }} — Muy pronto{% else %}{{ page_title }}{% endif %}">
+  <meta property="og:description" content="{{ page_description | default: 'Únete a la lista de espera y recibe la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.' | escape }}">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https:{{ 'logo-voltrix.png' | asset_url }}">
   <meta property="og:image:secure_url" content="https:{{ 'logo-voltrix.png' | asset_url }}">
 
   {% comment %} ── Twitter Card ── {% endcomment %}
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ shop.name }} — Muy pronto">
-  <meta name="twitter:description" content="Únete a la lista de espera y recibe la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.">
+  <meta name="twitter:title" content="{% if request.page_type == 'index' %}{{ shop.name }} — Muy pronto{% else %}{{ page_title }}{% endif %}">
+  <meta name="twitter:description" content="{{ page_description | default: 'Únete a la lista de espera y recibe la Guía de Rendimiento Honesta gratis + 15% de descuento de fundador.' | escape }}">
   <meta name="twitter:image" content="https:{{ 'logo-voltrix.png' | asset_url }}">
 
   {% comment %} ── JSON-LD: Organization ── {% endcomment %}
