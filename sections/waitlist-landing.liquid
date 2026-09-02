@@ -4,24 +4,23 @@
 .wl *, .wl *::before, .wl *::after { box-sizing: border-box; }
 .wl { --wl-ink: #0A0A1A; --wl-ink-panel: #12122A; --wl-white-70: rgba(255,255,255,.7); --wl-white-50: rgba(255,255,255,.5); --wl-white-30: rgba(255,255,255,.3); --wl-white-12: rgba(255,255,255,.12); --wl-white-07: rgba(255,255,255,.07); --wl-blue: #2563EB; --wl-volt: #C8F135; --wl-volt-dim: #A8CC2A; }
 
-.wl .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+.wl .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
 .wl .nav { display: flex; align-items: center; justify-content: center; padding: 28px 24px 0; }
 .wl .wl-logo-img { height: 24px; width: auto; display: block; }
-.wl .wl-logo-img--footer { height: 20px; margin: 0 auto 8px; }
 
-.wl .hero { padding: 64px 0 40px; text-align: center; position: relative; }
-.wl .hero::before { content: ''; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 480px; height: 480px; background: radial-gradient(circle, rgba(200,241,53,.13) 0%, transparent 68%); pointer-events: none; z-index: 0; }
+.wl .hero { padding: 56px 0 40px; text-align: center; position: relative; }
+.wl .hero::before { content: ''; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(200,241,53,.13) 0%, transparent 68%); pointer-events: none; z-index: 0; }
 
-.wl .eyebrow { position: relative; display: inline-flex; align-items: center; gap: 8px; background: rgba(200,241,53,.1); border: 1px solid rgba(200,241,53,.25); border-radius: 999px; padding: 6px 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--wl-volt); margin-bottom: 28px; }
+.wl .eyebrow { position: relative; display: inline-flex; align-items: center; gap: 8px; background: rgba(200,241,53,.1); border: 1px solid rgba(200,241,53,.25); border-radius: 999px; padding: 6px 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--wl-volt); margin-bottom: 26px; }
 
-.wl .hero h1 { position: relative; font-family: 'DM Serif Display', serif; font-size: clamp(34px, 7vw, 52px); font-weight: 400; line-height: 1.12; letter-spacing: -0.5px; margin-bottom: 20px; }
+.wl .hero h1 { position: relative; font-family: 'DM Serif Display', serif; font-size: clamp(30px, 6.5vw, 46px); font-weight: 400; line-height: 1.18; letter-spacing: -0.5px; margin-bottom: 18px; }
 .wl .hero h1 em { font-style: italic; color: var(--wl-volt); }
 
-.wl .hero-sub { position: relative; font-size: 17px; color: var(--wl-white-70); max-width: 460px; margin: 0 auto 36px; }
+.wl .hero-sub { position: relative; font-size: 16.5px; color: var(--wl-white-70); max-width: 480px; margin: 0 auto 32px; }
 .wl .hero-sub strong { color: #fff; font-weight: 700; }
 
-.wl .form-card { position: relative; background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 18px; padding: 28px 26px; max-width: 460px; margin: 0 auto; text-align: left; }
+.wl .form-card { position: relative; background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 18px; padding: 26px 24px; max-width: 460px; margin: 0 auto; text-align: left; }
 .wl .form-lead { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
 .wl .form-lead-icon { width: 34px; height: 34px; border-radius: 9px; background: rgba(200,241,53,.12); color: var(--wl-volt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .wl .form-lead-text { font-size: 13px; color: var(--wl-white-70); line-height: 1.45; }
@@ -42,15 +41,17 @@
 .wl .form-success { display: none; text-align: center; padding: 10px 0 2px; font-size: 14px; color: var(--wl-volt); font-weight: 700; }
 .wl .form-error { font-size: 12px; color: #F87171; margin-top: 8px; text-align: center; }
 
-.wl .proof-strip { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 28px auto 0; font-size: 12.5px; color: var(--wl-white-50); font-weight: 500; }
+.wl .proof-strip { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 26px auto 0; font-size: 12px; color: var(--wl-white-50); font-weight: 500; flex-wrap: wrap; }
 .wl .proof-strip .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--wl-white-30); flex-shrink: 0; }
 
-.wl .divider { height: 1px; background: var(--wl-white-07); margin: 56px 0; }
+.wl .divider { height: 1px; background: var(--wl-white-07); margin: 52px 0; }
 
 .wl .section-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--wl-volt); text-align: center; margin-bottom: 12px; }
-.wl .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 4.5vw, 32px); font-weight: 400; text-align: center; line-height: 1.25; margin-bottom: 44px; }
+.wl .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(23px, 4.5vw, 32px); font-weight: 400; text-align: center; line-height: 1.25; margin-bottom: 18px; }
 .wl .section-title em { font-style: italic; color: var(--wl-volt); }
+.wl .section-sub { font-size: 14.5px; color: var(--wl-white-50); text-align: center; max-width: 480px; margin: 0 auto 40px; line-height: 1.65; }
 
+/* ── Problema ── */
 .wl .moments { display: flex; flex-direction: column; gap: 2px; }
 .wl .moment { display: flex; gap: 18px; align-items: flex-start; padding: 22px 4px; border-top: 1px solid var(--wl-white-07); }
 .wl .moment:last-child { border-bottom: 1px solid var(--wl-white-07); }
@@ -58,20 +59,41 @@
 .wl .moment-body h4 { font-size: 15.5px; font-weight: 700; color: #fff; margin-bottom: 5px; }
 .wl .moment-body p { font-size: 13.5px; color: var(--wl-white-50); line-height: 1.6; }
 
+/* ── Método Voltrix ── */
+.wl .metodo-box { background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 18px; padding: 32px 28px; }
+.wl .metodo-body { font-size: 14px; color: var(--wl-white-70); line-height: 1.7; text-align: center; max-width: 460px; margin: 0 auto 28px; }
+.wl .metodo-grid { display: flex; flex-direction: column; gap: 14px; }
+.wl .metodo-item { display: flex; gap: 16px; align-items: flex-start; }
+.wl .metodo-num { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--wl-volt); line-height: 1; flex-shrink: 0; opacity: .85; width: 32px; }
+.wl .metodo-titulo { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.wl .metodo-desc { font-size: 13px; color: var(--wl-white-50); line-height: 1.6; }
+
+/* ── Complejos ── */
 .wl .complejos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .wl .complejo-card { background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 14px; padding: 20px 18px; }
 .wl .complejo-num { font-family: 'DM Serif Display', serif; font-size: 13px; color: var(--wl-volt); margin-bottom: 10px; }
 .wl .complejo-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
 .wl .complejo-desc { font-size: 12.5px; color: var(--wl-white-50); line-height: 1.55; }
+.wl .complejo-tag { display: inline-block; margin-top: 10px; font-size: 10px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; background: rgba(200,241,53,.1); color: var(--wl-volt); border: 1px solid rgba(200,241,53,.25); border-radius: 999px; padding: 3px 9px; }
 
+/* ── Founder ── */
 .wl .founder-box { background: linear-gradient(135deg, rgba(37,99,235,.14), rgba(200,241,53,.06)); border: 1px solid var(--wl-white-12); border-radius: 18px; padding: 30px 28px; }
 .wl .founder-quote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 18px; line-height: 1.55; color: #fff; margin-bottom: 16px; }
 .wl .founder-sign { font-size: 13px; color: var(--wl-white-50); font-weight: 600; }
 .wl .founder-sign span { color: var(--wl-volt); }
 
-.wl .cta-final { text-align: center; }
-.wl .cta-final .section-title { margin-bottom: 32px; }
+/* ── FAQ ── */
+.wl .faq-list { display: flex; flex-direction: column; gap: 10px; }
+.wl .faq-item { background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 12px; padding: 16px 20px; }
+.wl .faq-item summary { font-size: 14px; font-weight: 700; color: #fff; cursor: pointer; list-style: none; }
+.wl .faq-item summary::-webkit-details-marker { display: none; }
+.wl .faq-item p { font-size: 13px; color: var(--wl-white-50); line-height: 1.6; margin-top: 10px; }
 
+/* ── CTA final ── */
+.wl .cta-final { text-align: center; }
+.wl .cta-final .section-title { margin-bottom: 10px; }
+
+/* ── Footer ── */
 .wl .footer { padding: 48px 0 40px; text-align: center; border-top: 1px solid var(--wl-white-07); margin-top: 56px; }
 .wl .footer-note { font-size: 11.5px; color: var(--wl-white-30); max-width: 340px; margin: 0 auto; line-height: 1.6; }
 .wl .footer-links { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 14px; }
@@ -80,11 +102,12 @@
 .wl .footer-links-dot { color: var(--wl-white-30); font-size: 12px; }
 
 @media (max-width: 480px) {
-  .wl .hero { padding: 48px 0 32px; }
+  .wl .hero { padding: 44px 0 32px; }
   .wl .form-card { padding: 22px 18px; }
   .wl .complejos-grid { grid-template-columns: 1fr; }
   .wl .moment { gap: 12px; }
   .wl .moment-time { width: 50px; font-size: 13px; }
+  .wl .metodo-box { padding: 24px 20px; }
 }
 </style>
 
@@ -99,8 +122,8 @@
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
       Próximamente — 15% dto. fundador + guía gratis
     </div>
-    <h1>Todo lo que necesitas para rendir cada día.<br><em>En una sola toma.</em></h1>
-    <p class="hero-sub">Hidratación, energía, foco, creatina y recuperación — en un solo bote. Únete a la lista y llévate la <strong>Guía de Rendimiento Honesta gratis</strong>, además de un <strong>15% de descuento de fundador</strong> exclusivo para esta lista.</p>
+    <h1>No es falta de disciplina.<br>Es <em>química mal resuelta.</em></h1>
+    <p class="hero-sub">Haces todo bien y aun así rindes por debajo de lo que puedes. Voltrix aplica el <strong>Método Voltrix</strong>: dosis clínicas completas, cero relleno, evidencia antes que marketing — hidratación, foco, creatina Creapure® y recuperación en una sola toma.</p>
 
     <div class="form-card">
       <div class="form-lead">
@@ -109,7 +132,7 @@
         </div>
         <div class="form-lead-text">
           <strong>Al unirte: Guía gratis + 15% de descuento</strong>
-          La Guía de Rendimiento Honesta (qué suplementos funcionan de verdad) y tu 15% de descuento de fundador para el lanzamiento. Sin spam.
+          La Guía de Rendimiento Diario (8 capítulos) y tu 15% de descuento de fundador para el lanzamiento. Sin spam.
         </div>
       </div>
 
@@ -139,6 +162,8 @@
 
     <div class="proof-strip">
       <span>Fórmula formulada y validada</span>
+      <span class="dot"></span>
+      <span>Creatina Creapure® · KSM-66®</span>
       <span class="dot"></span>
       <span>Fabricación en curso</span>
     </div>
@@ -183,32 +208,69 @@
   </div>
 </div>
 
+<!-- ══ EL MÉTODO VOLTRIX ══ -->
+<div class="wrap">
+  <div class="divider"></div>
+  <div class="section-label">El método</div>
+  <h2 class="section-title">El Método <em>Voltrix</em></h2>
+  <p class="section-sub">No es un ingrediente más. Es el criterio con el que se construyó toda la fórmula.</p>
+
+  <div class="metodo-box">
+    <p class="metodo-body">Cada ingrediente en su dosis clínica completa, en el ratio exacto que respalda la evidencia — nunca la cantidad simbólica que usan otros para que quepa en la etiqueta.</p>
+    <div class="metodo-grid">
+      <div class="metodo-item">
+        <div class="metodo-num">01</div>
+        <div>
+          <div class="metodo-titulo">Dosis completa, no simbólica</div>
+          <div class="metodo-desc">3g de creatina Creapure®, no 1g. 200mg de teanina + 100mg de cafeína en ratio 2:1 real.</div>
+        </div>
+      </div>
+      <div class="metodo-item">
+        <div class="metodo-num">02</div>
+        <div>
+          <div class="metodo-titulo">Una sola toma, cero relleno</div>
+          <div class="metodo-desc">Si un ingrediente no tiene dosis clínica relevante, no entra en la fórmula.</div>
+        </div>
+      </div>
+      <div class="metodo-item">
+        <div class="metodo-num">03</div>
+        <div>
+          <div class="metodo-titulo">Evidencia antes que marketing</div>
+          <div class="metodo-desc">Cada complejo existe porque hay estudio detrás, no porque suene bien en un anuncio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══ LOS COMPLEJOS ══ -->
 <div class="wrap">
   <div class="divider"></div>
-  <div class="section-label">La solución</div>
+  <div class="section-label">La fórmula</div>
   <h2 class="section-title">Cuatro complejos.<br><em>Una sola toma diaria.</em></h2>
 
   <div class="complejos-grid">
     <div class="complejo-card">
       <div class="complejo-num">01</div>
       <div class="complejo-name">Hydra Performance</div>
-      <div class="complejo-desc">Sodio, potasio y magnesio bisglicinato. Hidratación que el cuerpo realmente aprovecha.</div>
+      <div class="complejo-desc">Sodio, potasio y magnesio bisglicinato (40% absorción vs 4% del óxido). Hidratación que el cuerpo realmente aprovecha.</div>
     </div>
     <div class="complejo-card">
       <div class="complejo-num">02</div>
       <div class="complejo-name">Focus & Energy</div>
-      <div class="complejo-desc">L-Teanina + cafeína natural en ratio 2:1. Energía limpia, sin el crash de las 4pm.</div>
+      <div class="complejo-desc">L-teanina + cafeína natural en ratio 2:1. Energía limpia, sin el crash de las 4pm.</div>
     </div>
     <div class="complejo-card">
       <div class="complejo-num">03</div>
       <div class="complejo-name">Performance</div>
-      <div class="complejo-desc">Creatina Creapure® + taurina. La creatina más pura del mercado, en la dosis efectiva.</div>
+      <div class="complejo-desc">Creatina Creapure® + taurina. La creatina más pura del mercado, en dosis efectiva real.</div>
+      <span class="complejo-tag">Creapure® 99,9%</span>
     </div>
     <div class="complejo-card">
       <div class="complejo-num">04</div>
       <div class="complejo-name">Stress & Recovery</div>
-      <div class="complejo-desc">KSM-66® ashwagandha. Porque recuperarse también es cosa de la mente.</div>
+      <div class="complejo-desc">KSM-66® ashwagandha, ≥5% withanólidos. Porque recuperarse también es cosa de la mente.</div>
+      <span class="complejo-tag">KSM-66® clínico</span>
     </div>
   </div>
 </div>
@@ -217,8 +279,34 @@
 <div class="wrap">
   <div class="divider"></div>
   <div class="founder-box">
-    <div class="founder-quote">"Empecé Voltrix porque estaba cansado de tener cuatro botes distintos en la cocina y ninguno de ellos tomándolo de verdad. Quería una sola cosa que hiciera bien lo que cuatro hacían a medias."</div>
+    <div class="founder-quote">"Empecé Voltrix porque estaba cansado de tener cuatro botes distintos en la cocina y ninguno de ellos tomándolo de verdad. Quería una sola cosa que hiciera bien lo que cuatro hacían a medias — con dosis reales, no de escaparate."</div>
     <div class="founder-sign">— Ayoub Mitxelena, fundador de <span>Voltrix</span></div>
+  </div>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="wrap">
+  <div class="divider"></div>
+  <div class="section-label">Antes de que lo preguntes</div>
+  <h2 class="section-title">Dudas rápidas</h2>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>¿44,99€ no es caro para un suplemento?</summary>
+      <p>Son 1,50€ al día — menos que un café. Y cubre hidratación, energía, creatina y recuperación en una sola toma, en vez de cuatro botes distintos.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿La creatina necesita dosis de carga?</summary>
+      <p>No. Usamos Creapure®, la creatina monohidrato más pura del mercado. Con 3g diarios consistentes los depósitos se saturan en 21-28 días — la constancia importa más que la carga.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Puedo tomarlo si ya tomo café?</summary>
+      <p>Sí, con moderación. Voltrix lleva 100mg de cafeína natural. Si eres sensible, tómalo antes del mediodía.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuándo notaré los resultados?</summary>
+      <p>Energía y foco desde el primer día. Hidratación en la primera semana. Creatina y KSM-66® a partir de las 2-4 semanas de toma diaria consistente.</p>
+    </details>
   </div>
 </div>
 
@@ -234,8 +322,8 @@
 
 <!-- ══ FOOTER ══ -->
 <div class="footer">
-  <img src="{{ 'logo-voltrix.png' | asset_url }}" alt="Voltrix" class="wl-logo-img wl-logo-img--footer">
-  <p class="footer-note">Una sola toma para vida exigente. Lanzamiento próximamente.</p>
+  <img src="{{ 'logo-voltrix.png' | asset_url }}" alt="Voltrix" class="wl-logo-img">
+  <p class="footer-note" style="margin-top:14px;">Una sola toma para vida exigente. Lanzamiento próximamente.</p>
   <div class="footer-links">
     <a href="{{ pages.politicas.url | default: '#' }}" class="footer-policy-link">Políticas legales</a>
     <span class="footer-links-dot">·</span>
@@ -251,7 +339,7 @@
     if (!link) return;
     link.addEventListener('click', function () {
       setTimeout(function () {
-        var input = document.getElementById('wl-email');
+        var input = document.getElementById('wl-name');
         if (input) input.focus();
       }, 400);
     });
