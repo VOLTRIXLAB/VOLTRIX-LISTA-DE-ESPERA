@@ -1,352 +1,277 @@
 <div class="wl">
 <style>
-.wl { font-family: 'Inter', sans-serif; background: #0A0A1A; color: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-.wl *, .wl *::before, .wl *::after { box-sizing: border-box; }
-.wl { --wl-ink: #0A0A1A; --wl-ink-panel: #12122A; --wl-white-70: rgba(255,255,255,.7); --wl-white-50: rgba(255,255,255,.5); --wl-white-30: rgba(255,255,255,.3); --wl-white-12: rgba(255,255,255,.12); --wl-white-07: rgba(255,255,255,.07); --wl-blue: #2563EB; --wl-volt: #C8F135; --wl-volt-dim: #A8CC2A; }
-
-.wl .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
-
-.wl .nav { display: flex; align-items: center; justify-content: center; padding: 28px 24px 0; }
-.wl .wl-logo-img { height: 24px; width: auto; display: block; }
-
-.wl .hero { padding: 56px 0 40px; text-align: center; position: relative; }
-.wl .hero::before { content: ''; position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(200,241,53,.13) 0%, transparent 68%); pointer-events: none; z-index: 0; }
-
-.wl .eyebrow { position: relative; display: inline-flex; align-items: center; gap: 8px; background: rgba(200,241,53,.1); border: 1px solid rgba(200,241,53,.25); border-radius: 999px; padding: 6px 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--wl-volt); margin-bottom: 26px; }
-
-.wl .hero h1 { position: relative; font-family: 'DM Serif Display', serif; font-size: clamp(30px, 6.5vw, 46px); font-weight: 400; line-height: 1.18; letter-spacing: -0.5px; margin-bottom: 18px; }
-.wl .hero h1 em { font-style: italic; color: var(--wl-volt); }
-
-.wl .hero-sub { position: relative; font-size: 16.5px; color: var(--wl-white-70); max-width: 480px; margin: 0 auto 32px; }
-.wl .hero-sub strong { color: #fff; font-weight: 700; }
-
-.wl .form-card { position: relative; background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 18px; padding: 26px 24px; max-width: 460px; margin: 0 auto; text-align: left; }
-.wl .form-lead { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
-.wl .form-lead-icon { width: 34px; height: 34px; border-radius: 9px; background: rgba(200,241,53,.12); color: var(--wl-volt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.wl .form-lead-text { font-size: 13px; color: var(--wl-white-70); line-height: 1.45; }
-.wl .form-lead-text strong { color: #fff; display: block; font-size: 14px; font-weight: 700; margin-bottom: 1px; }
-
-.wl .signup-form { display: flex; flex-direction: column; gap: 10px; }
-.wl .field-row { display: flex; flex-direction: column; gap: 6px; }
-.wl .field-row label { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--wl-white-50); }
-.wl .field-row input { width: 100%; background: rgba(255,255,255,.05); border: 1px solid var(--wl-white-12); border-radius: 10px; padding: 13px 14px; font-family: 'Inter', sans-serif; font-size: 15px; color: #fff; outline: none; transition: border-color .15s ease, background .15s ease; }
-.wl .field-row input::placeholder { color: var(--wl-white-30); }
-.wl .field-row input:focus { border-color: var(--wl-volt); background: rgba(255,255,255,.08); }
-
-.wl .submit-btn { margin-top: 6px; width: 100%; background: var(--wl-volt); color: var(--wl-ink); border: none; border-radius: 10px; padding: 15px 20px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; transition: background .15s ease, transform .1s ease; }
-.wl .submit-btn:hover { background: var(--wl-volt-dim); }
-.wl .submit-btn:active { transform: scale(.985); }
-
-.wl .form-note { margin-top: 12px; font-size: 11.5px; color: var(--wl-white-30); text-align: center; line-height: 1.5; }
-.wl .form-success { display: none; text-align: center; padding: 10px 0 2px; font-size: 14px; color: var(--wl-volt); font-weight: 700; }
-.wl .form-error { font-size: 12px; color: #F87171; margin-top: 8px; text-align: center; }
-
-.wl .proof-strip { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 26px auto 0; font-size: 12px; color: var(--wl-white-50); font-weight: 500; flex-wrap: wrap; }
-.wl .proof-strip .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--wl-white-30); flex-shrink: 0; }
-
-.wl .divider { height: 1px; background: var(--wl-white-07); margin: 52px 0; }
-
-.wl .section-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--wl-volt); text-align: center; margin-bottom: 12px; }
-.wl .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(23px, 4.5vw, 32px); font-weight: 400; text-align: center; line-height: 1.25; margin-bottom: 18px; }
-.wl .section-title em { font-style: italic; color: var(--wl-volt); }
-.wl .section-sub { font-size: 14.5px; color: var(--wl-white-50); text-align: center; max-width: 480px; margin: 0 auto 40px; line-height: 1.65; }
-
-/* ── Problema ── */
-.wl .moments { display: flex; flex-direction: column; gap: 2px; }
-.wl .moment { display: flex; gap: 18px; align-items: flex-start; padding: 22px 4px; border-top: 1px solid var(--wl-white-07); }
-.wl .moment:last-child { border-bottom: 1px solid var(--wl-white-07); }
-.wl .moment-time { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--wl-volt); width: 64px; flex-shrink: 0; padding-top: 2px; }
-.wl .moment-body h4 { font-size: 15.5px; font-weight: 700; color: #fff; margin-bottom: 5px; }
-.wl .moment-body p { font-size: 13.5px; color: var(--wl-white-50); line-height: 1.6; }
-
-/* ── Método Voltrix ── */
-.wl .metodo-box { background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 18px; padding: 32px 28px; }
-.wl .metodo-body { font-size: 14px; color: var(--wl-white-70); line-height: 1.7; text-align: center; max-width: 460px; margin: 0 auto 28px; }
-.wl .metodo-grid { display: flex; flex-direction: column; gap: 14px; }
-.wl .metodo-item { display: flex; gap: 16px; align-items: flex-start; }
-.wl .metodo-num { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--wl-volt); line-height: 1; flex-shrink: 0; opacity: .85; width: 32px; }
-.wl .metodo-titulo { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-.wl .metodo-desc { font-size: 13px; color: var(--wl-white-50); line-height: 1.6; }
-
-/* ── Complejos ── */
-.wl .complejos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.wl .complejo-card { background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 14px; padding: 20px 18px; }
-.wl .complejo-num { font-family: 'DM Serif Display', serif; font-size: 13px; color: var(--wl-volt); margin-bottom: 10px; }
-.wl .complejo-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
-.wl .complejo-desc { font-size: 12.5px; color: var(--wl-white-50); line-height: 1.55; }
-.wl .complejo-tag { display: inline-block; margin-top: 10px; font-size: 10px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; background: rgba(200,241,53,.1); color: var(--wl-volt); border: 1px solid rgba(200,241,53,.25); border-radius: 999px; padding: 3px 9px; }
-
-/* ── Founder ── */
-.wl .founder-box { background: linear-gradient(135deg, rgba(37,99,235,.14), rgba(200,241,53,.06)); border: 1px solid var(--wl-white-12); border-radius: 18px; padding: 30px 28px; }
-.wl .founder-quote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 18px; line-height: 1.55; color: #fff; margin-bottom: 16px; }
-.wl .founder-sign { font-size: 13px; color: var(--wl-white-50); font-weight: 600; }
-.wl .founder-sign span { color: var(--wl-volt); }
-
-/* ── FAQ ── */
-.wl .faq-list { display: flex; flex-direction: column; gap: 10px; }
-.wl .faq-item { background: var(--wl-ink-panel); border: 1px solid var(--wl-white-12); border-radius: 12px; padding: 16px 20px; }
-.wl .faq-item summary { font-size: 14px; font-weight: 700; color: #fff; cursor: pointer; list-style: none; }
-.wl .faq-item summary::-webkit-details-marker { display: none; }
-.wl .faq-item p { font-size: 13px; color: var(--wl-white-50); line-height: 1.6; margin-top: 10px; }
-
-/* ── CTA final ── */
-.wl .cta-final { text-align: center; }
-.wl .cta-final .section-title { margin-bottom: 10px; }
-
-/* ── Footer ── */
-.wl .footer { padding: 48px 0 40px; text-align: center; border-top: 1px solid var(--wl-white-07); margin-top: 56px; }
-.wl .footer-note { font-size: 11.5px; color: var(--wl-white-30); max-width: 340px; margin: 0 auto; line-height: 1.6; }
-.wl .footer-links { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 14px; }
-.wl .footer-policy-link { font-size: 12px; color: var(--wl-white-50); text-decoration: underline; text-underline-offset: 3px; }
-.wl .footer-policy-link:hover { color: var(--wl-volt); }
-.wl .footer-links-dot { color: var(--wl-white-30); font-size: 12px; }
-
-@media (max-width: 480px) {
-  .wl .hero { padding: 44px 0 32px; }
-  .wl .form-card { padding: 22px 18px; }
-  .wl .complejos-grid { grid-template-columns: 1fr; }
-  .wl .moment { gap: 12px; }
-  .wl .moment-time { width: 50px; font-size: 13px; }
-  .wl .metodo-box { padding: 24px 20px; }
+.wl { --ink:#0A0A1A; --panel:#141430; --line:#28284A; --volt:#C8F135; --w70:rgba(255,255,255,.75); --w50:rgba(255,255,255,.55); font-family:'Inter',sans-serif; background:var(--ink); color:#fff; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.wl *, .wl *::before, .wl *::after { box-sizing:border-box; }
+.wl a { color:inherit; }
+.wl .wl-sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.wl .wrap { max-width:860px; margin:0 auto; padding:0 24px; }
+.wl .nav { display:flex; justify-content:center; padding:28px 24px 0; }
+.wl .nav img { height:24px; width:auto; display:block; }
+.wl .eyebrow { font-size:11px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--volt); margin-bottom:10px; }
+.wl h1, .wl h2, .wl h3.serif { font-family:'DM Serif Display',serif; font-weight:400; }
+.wl h1 em, .wl h2 em { font-style:italic; color:var(--volt); }
+.wl .section { padding:72px 0 0; }
+.wl h2 { font-size:clamp(26px,4.2vw,42px); line-height:1.12; letter-spacing:-.4px; margin:0 0 14px; }
+.wl .lead { font-size:16px; color:var(--w70); max-width:600px; line-height:1.72; margin:0 0 32px; }
+/* hero */
+.wl .hero { padding:56px 0 8px; text-align:center; position:relative; }
+.wl .hero::before { content:''; position:absolute; top:-40px; left:50%; transform:translateX(-50%); width:560px; height:560px; background:radial-gradient(circle,rgba(200,241,53,.12) 0%,transparent 68%); pointer-events:none; }
+.wl .hero > * { position:relative; }
+.wl .hero h1 { font-size:clamp(32px,6vw,56px); line-height:1.08; letter-spacing:-.5px; margin:6px auto 16px; max-width:780px; }
+.wl .hero .sub { font-size:17px; color:var(--w70); max-width:620px; margin:0 auto 30px; line-height:1.7; }
+.wl .hero .sub strong { color:#fff; }
+.wl .card { max-width:560px; margin:0 auto; background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:28px; text-align:left; }
+.wl .perks { list-style:none; margin:0 0 22px; padding:0; display:grid; gap:12px; }
+.wl .perks li { font-size:14px; color:rgba(255,255,255,.82); display:flex; gap:12px; align-items:baseline; line-height:1.5; }
+.wl .perks b { flex:0 0 auto; min-width:56px; font-size:12px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; color:var(--ink); background:var(--volt); border-radius:6px; padding:3px 8px; text-align:center; }
+.wl .perks em { color:var(--w50); font-style:normal; }
+.wl .note { font-size:12px; color:var(--w50); margin-top:16px; }
+/* form */
+.wl .wl-form__row { display:flex; gap:8px; }
+.wl .wl-form input[type=email] { flex:1; min-width:0; padding:14px 16px; border-radius:10px; border:1px solid var(--line); background:rgba(255,255,255,.05); color:#fff; font-size:15px; font-family:inherit; }
+.wl .wl-form input[type=email]::placeholder { color:rgba(255,255,255,.4); }
+.wl .wl-form button { padding:14px 20px; border-radius:10px; background:var(--volt); color:var(--ink); font-weight:800; font-size:14px; border:none; cursor:pointer; white-space:nowrap; font-family:inherit; }
+.wl .wl-form button:disabled { opacity:.6; cursor:not-allowed; }
+.wl .wl-form__consent { display:flex; gap:10px; align-items:flex-start; margin-top:12px; font-size:12px; line-height:1.5; color:var(--w50); cursor:pointer; text-align:left; }
+.wl .wl-form__consent input { margin-top:2px; accent-color:#C8F135; flex:0 0 auto; width:16px; height:16px; }
+.wl .wl-form__consent a { color:var(--volt); text-decoration:underline; }
+.wl .wl-msg { font-size:13px; margin:12px 0 0; line-height:1.5; }
+.wl .wl-msg--err { color:#F87171; }
+.wl .wl-msg--ok { color:var(--volt); font-weight:700; }
+/* problema */
+.wl .grid2 { display:grid; grid-template-columns:1fr 1fr; border:1px solid #1E1E38; border-radius:20px; overflow:hidden; }
+.wl .cell { padding:28px 26px; background:rgba(255,255,255,.02); border-right:1px solid #1E1E38; border-bottom:1px solid #1E1E38; }
+.wl .cell:nth-child(2n) { border-right:none; }
+.wl .cell:nth-child(3), .wl .cell:nth-child(4) { border-bottom:none; }
+.wl .hora { font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--volt); margin-bottom:10px; }
+.wl .cell h3 { font-size:16px; font-weight:800; margin:0 0 7px; line-height:1.3; }
+.wl .cell p { font-size:13px; color:var(--w70); line-height:1.65; margin:0 0 10px; }
+.wl .tag { display:inline-block; font-size:11px; font-weight:700; color:var(--volt); background:rgba(200,241,53,.08); border:1px solid rgba(200,241,53,.18); border-radius:6px; padding:3px 10px; }
+/* solucion */
+.wl .cell .ing { font-size:15px; font-weight:800; margin:0 0 8px; line-height:1.35; color:#fff; }
+.wl .how { margin-top:28px; background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:26px; }
+.wl .how h3 { font-family:'DM Serif Display',serif; font-weight:400; font-size:22px; margin:0 0 12px; }
+.wl .how ol { margin:0; padding-left:20px; display:grid; gap:8px; font-size:14px; color:var(--w70); line-height:1.6; }
+.wl .how strong { color:#fff; }
+/* oferta */
+.wl .gifts { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:32px; }
+.wl .gift { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:24px; }
+.wl .gift .big { font-family:'DM Serif Display',serif; font-size:34px; color:var(--volt); line-height:1; margin:0 0 10px; }
+.wl .gift h3 { font-size:15px; font-weight:800; margin:0 0 8px; }
+.wl .gift p { font-size:13px; line-height:1.65; color:var(--w70); margin:0; }
+/* fundador */
+.wl .founder { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:32px; max-width:680px; margin:0 auto; }
+.wl .founder q { display:block; quotes:none; font-family:'DM Serif Display',serif; font-style:italic; font-size:19px; line-height:1.55; margin-bottom:14px; }
+.wl .founder .sign { font-size:13px; color:var(--w50); }
+.wl .founder .sign span { color:var(--volt); }
+/* faq */
+.wl .faq { max-width:680px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+.wl details { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:16px 20px; }
+.wl summary { font-weight:700; font-size:14px; cursor:pointer; }
+.wl details p { font-size:13px; color:var(--w70); margin:10px 0 0; line-height:1.6; }
+/* cierre */
+.wl .close { max-width:720px; margin:0 auto; padding:44px 32px; text-align:center; border:1px solid #1E1E38; border-radius:22px; background:#10102A; }
+.wl .close h2 { font-size:clamp(26px,3.8vw,40px); }
+.wl .close p.t { font-size:16px; color:var(--w70); line-height:1.72; margin:0 0 18px; }
+.wl .close p.m { font-size:14.5px; color:var(--volt); font-style:italic; margin:0 0 26px; }
+.wl .close .wl-form { max-width:520px; margin:0 auto; }
+/* footer */
+.wl .footer { padding:48px 0 40px; text-align:center; border-top:1px solid rgba(255,255,255,.07); margin-top:72px; }
+.wl .footer img { height:22px; width:auto; }
+.wl .footer p { font-size:11.5px; color:rgba(255,255,255,.4); margin:14px auto 0; max-width:360px; }
+.wl .footer .links { display:flex; justify-content:center; gap:10px; margin-top:14px; font-size:12px; color:var(--w50); }
+.wl .footer .links a { text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:700px) {
+  .wl .wrap { padding:0 16px; } .wl .section { padding-top:56px; } .wl .hero { padding-top:44px; }
+  .wl .card { padding:22px 18px; } .wl .wl-form__row { flex-direction:column; } .wl .wl-form button { width:100%; }
+  .wl .grid2, .wl .gifts { grid-template-columns:1fr; }
+  .wl .cell { border-right:none; border-bottom:1px solid #1E1E38 !important; } .wl .cell:last-child { border-bottom:none !important; }
+  .wl .close { padding:30px 18px; } .wl .founder { padding:24px 20px; }
 }
 </style>
 
-<div class="nav">
-  <img src="{{ 'logo-voltrix.png' | asset_url }}" alt="Voltrix" class="wl-logo-img">
-</div>
+<div class="nav"><img src="{{ 'logo-voltrix.png' | asset_url }}" alt="Voltrix" width="90" height="24"></div>
 
-<!-- ══ HERO + FORM ══ -->
+<!-- HERO -->
 <div class="wrap">
-  <div class="hero" id="wl-top">
-    <div class="eyebrow">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      Próximamente — 15% dto. fundador + guía gratis
-    </div>
-    <h1>No es falta de disciplina.<br>Es <em>química mal resuelta.</em></h1>
-    <p class="hero-sub">Haces todo bien y aun así rindes por debajo de lo que puedes. Voltrix aplica el <strong>Método Voltrix</strong>: dosis clínicas completas, cero relleno, evidencia antes que marketing — hidratación, foco, creatina Creapure® y recuperación en una sola toma.</p>
-
-    <div class="form-card">
-      <div class="form-lead">
-        <div class="form-lead-icon">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <div class="form-lead-text">
-          <strong>Al unirte: Guía gratis + 15% de descuento</strong>
-          La Guía de Rendimiento Diario (8 capítulos) y tu 15% de descuento de fundador para el lanzamiento. Sin spam.
-        </div>
-      </div>
-
-      {% form 'customer', id: 'wl-signup-form' %}
-        {% if form.posted_successfully? %}
-          <p class="form-success" style="display:block;">¡Estás dentro! Revisa tu email — te hemos enviado la guía y tu código de fundador.</p>
-        {% else %}
-          <div class="signup-form">
-            <input type="hidden" name="contact[tags]" value="lista-espera-fundador-15">
-            <div class="field-row">
-              <label for="wl-name">Nombre</label>
-              <input type="text" id="wl-name" name="contact[first_name]" placeholder="Tu nombre" required>
-            </div>
-            <div class="field-row">
-              <label for="wl-email">Email</label>
-              <input type="email" id="wl-email" name="contact[email]" placeholder="tucorreo@ejemplo.com" required>
-            </div>
-            <button type="submit" class="submit-btn">Únete a la lista de espera →</button>
-          </div>
-          {% if form.errors %}
-            <p class="form-error">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
-          {% endif %}
-        {% endif %}
-      {% endform %}
-      <p class="form-note">Cero spam. Solo el aviso de lanzamiento y tu descuento de fundador. Cancela cuando quieras.</p>
-    </div>
-
-    <div class="proof-strip">
-      <span>Fórmula formulada y validada</span>
-      <span class="dot"></span>
-      <span>Creatina Creapure® · KSM-66®</span>
-      <span class="dot"></span>
-      <span>Fabricación en curso</span>
-    </div>
+  <header class="hero" id="unirme">
+    <p class="eyebrow">Lista de espera · Lanzamiento</p>
+    <h1>Todo lo que necesitas para rendir cada día.<br><em>En una sola toma.</em></h1>
+    <p class="sub">Voltrix Daily Performance Formula todavía no está a la venta. Apúntate hoy y serás de los primeros en poder comprarla, con un <strong>25 % de descuento de lanzamiento</strong> y la <strong>Guía de Rendimiento Diario</strong> gratis.</p>
+    <div class="card">
+      <ul class="perks">
+        <li><b>−25 %</b><span>en tu primer pedido de lanzamiento <em>(49,99 € → 37,49 €)</em></span></li>
+        <li><b>Guía</b><span>de Rendimiento Diario: 8 capítulos, gratis al apuntarte</span></li>
+        <li><b>Antes</b><span>que nadie: aviso por email cuando abramos</span></li>
+      </ul>
+      <form class="wl-form" data-wl-form novalidate>
+  <div class="wl-form__row">
+    <label class="wl-sr" for="wl-email-hero">Tu email</label>
+    <input type="email" id="wl-email-hero" name="email" placeholder="tu@email.com" autocomplete="email" required data-wl-email>
+    <button type="submit" data-wl-btn>Quiero mi 25 % y la guía →</button>
   </div>
+  <label class="wl-form__consent">
+    <input type="checkbox" required data-wl-consent>
+    <span>Acepto recibir emails de Voltrix (la guía, mi descuento y el aviso de lanzamiento). Puedes darte de baja cuando quieras. <a href="{{ pages.politicas.url | default: '#' }}#privacidad">Política de privacidad</a>.</span>
+  </label>
+  <p class="wl-msg wl-msg--err" data-wl-err role="alert" hidden></p>
+  <p class="wl-msg wl-msg--ok" data-wl-ok role="status" hidden>¡Estás dentro! Revisa tu email: ahí van tu guía y tu 25 %. Si no lo ves en unos minutos, mira en promociones o spam.</p>
+</form>
+    </div>
+    <p class="note">Sin compromiso de compra. Un email de bienvenida y el aviso de lanzamiento. Nada de spam.</p>
+  </header>
 </div>
 
-<!-- ══ EL PROBLEMA ══ -->
-<div class="wrap">
-  <div class="divider"></div>
-  <div class="section-label">El problema real</div>
-  <h2 class="section-title">Haces todo bien.<br><em>Y aun así no rindes</em> a tu nivel.</h2>
-
-  <div class="moments">
-    <div class="moment">
-      <div class="moment-time">8:00</div>
-      <div class="moment-body">
-        <h4>Empiezas cansado aunque hayas dormido</h4>
-        <p>Sin la hidratación real que tu cuerpo necesita, ninguna cantidad de café arregla la mañana.</p>
-      </div>
-    </div>
-    <div class="moment">
-      <div class="moment-time">15:00</div>
-      <div class="moment-body">
-        <h4>Llega el bajón y ya no es cuestión de ánimo</h4>
-        <p>Es química. Sin el foco sostenido, la tarde se convierte en resistir hasta las 6.</p>
-      </div>
-    </div>
-    <div class="moment">
-      <div class="moment-time">18:00</div>
-      <div class="moment-body">
-        <h4>Entrenas con menos de lo que tienes</h4>
-        <p>Sin la dosis de creatina que de verdad funciona, cada sesión rinde por debajo de tu potencial.</p>
-      </div>
-    </div>
-    <div class="moment">
-      <div class="moment-time">23:00</div>
-      <div class="moment-body">
-        <h4>El cuerpo no se recupera del todo</h4>
-        <p>El estrés acumulado del día no se apaga solo. Y mañana vuelve a empezar igual.</p>
-      </div>
-    </div>
+<!-- PROBLEMA -->
+<section class="wrap section" id="problema">
+  <p class="eyebrow">El problema</p>
+  <h2>No es que tengas poca energía.<br><em>Es que nadie te lo está poniendo fácil.</em></h2>
+  <p class="lead">Haces todo bien: comes, duermes, entrenas. Y aun así tu día tiene siempre los mismos cuatro momentos.</p>
+  <div class="grid2">
+    <div class="cell"><p class="hora">9:00</p><h3>El café ya no te despierta igual</h3><p>Lo tomas, notas un pico y en una hora estás igual que antes. La cafeína sola, sin nada que la acompañe, va a picos.</p><span class="tag">Culpable: cafeína sola</span></div>
+    <div class="cell"><p class="hora">12:00</p><h3>Bebes agua pero sigues con sed</h3><p>El agua sola no repone lo que pierdes. Sin sodio, potasio y magnesio en dosis útiles, te hidratas menos de lo que crees.</p><span class="tag">Culpable: agua sin electrolitos</span></div>
+    <div class="cell"><p class="hora">15:00</p><h3>El bajón inevitable de la tarde</h3><p>Llegas a media tarde sin depósito, con otro café a medio camino y la lista a medias.</p><span class="tag">Culpable: una rutina que no se sostiene</span></div>
+    <div class="cell"><p class="hora">19:00</p><h3>El gym que no rinde como antes</h3><p>Semanas con los mismos pesos. Muchos suplementos llevan dosis simbólicas, solo para que el ingrediente aparezca en la etiqueta.</p><span class="tag">Culpable: dosis simbólicas</span></div>
   </div>
-</div>
+</section>
 
-<!-- ══ EL MÉTODO VOLTRIX ══ -->
-<div class="wrap">
-  <div class="divider"></div>
-  <div class="section-label">El método</div>
-  <h2 class="section-title">El Método <em>Voltrix</em></h2>
-  <p class="section-sub">No es un ingrediente más. Es el criterio con el que se construyó toda la fórmula.</p>
-
-  <div class="metodo-box">
-    <p class="metodo-body">Cada ingrediente en su dosis clínica completa, en el ratio exacto que respalda la evidencia — nunca la cantidad simbólica que usan otros para que quepa en la etiqueta.</p>
-    <div class="metodo-grid">
-      <div class="metodo-item">
-        <div class="metodo-num">01</div>
-        <div>
-          <div class="metodo-titulo">Dosis completa, no simbólica</div>
-          <div class="metodo-desc">3g de creatina Creapure®, no 1g. 200mg de teanina Suntheanine® + 100mg de cafeína en ratio 2:1 real.</div>
-        </div>
-      </div>
-      <div class="metodo-item">
-        <div class="metodo-num">02</div>
-        <div>
-          <div class="metodo-titulo">Una sola toma, cero relleno</div>
-          <div class="metodo-desc">Si un ingrediente no tiene dosis clínica relevante, no entra en la fórmula.</div>
-        </div>
-      </div>
-      <div class="metodo-item">
-        <div class="metodo-num">03</div>
-        <div>
-          <div class="metodo-titulo">Evidencia antes que marketing</div>
-          <div class="metodo-desc">Cada complejo existe porque hay estudio detrás, no porque suene bien en un anuncio.</div>
-        </div>
-      </div>
-    </div>
+<!-- SOLUCIÓN -->
+<section class="wrap section" id="solucion">
+  <p class="eyebrow">La solución</p>
+  <h2>Cuatro complejos. Una sola toma.<br><em>Así te ayudamos.</em></h2>
+  <p class="lead">En lugar de cuatro botes que no sostienes, una cucharada al día con las dosis completas escritas en la etiqueta. Cada complejo responde a uno de los momentos de arriba.</p>
+  <div class="grid2">
+    <div class="cell"><p class="hora">Hydra Performance Complex</p><p class="ing">Sodio 600 mg · Potasio 300 mg · Magnesio 100 mg</p><p>Los electrolitos que el agua sola no repone. El potasio contribuye al funcionamiento normal de los músculos y del sistema nervioso, y el magnesio al equilibrio electrolítico y a reducir el cansancio y la fatiga.</p></div>
+    <div class="cell"><p class="hora">Focus &amp; Energy Complex</p><p class="ing">Cafeína 100 mg · L-teanina Suntheanine® 200 mg</p><p>Cafeína con L-teanina en ratio 2:1, para que no vaya sola. La cafeína ayuda a aumentar el estado de alerta y a mejorar la concentración.</p></div>
+    <div class="cell"><p class="hora">Performance Complex</p><p class="ing">Creatina Creapure® 3 g · Taurina 500 mg</p><p>La dosis útil de creatina, todos los días. 3 g al día aumentan el rendimiento físico en series sucesivas de ejercicios de corta duración y alta intensidad (adultos).</p></div>
+    <div class="cell"><p class="hora">Stress &amp; Recovery Complex</p><p class="ing">KSM-66® Ashwagandha 300 mg</p><p>Extracto estandarizado de raíz de ashwagandha, un adaptógeno tradicional, para la rutina diaria de quien vive con la cabeza a mil.</p></div>
   </div>
-</div>
-
-<!-- ══ LOS COMPLEJOS ══ -->
-<div class="wrap">
-  <div class="divider"></div>
-  <div class="section-label">La fórmula</div>
-  <h2 class="section-title">Cuatro complejos.<br><em>Una sola toma diaria.</em></h2>
-
-  <div class="complejos-grid">
-    <div class="complejo-card">
-      <div class="complejo-num">01</div>
-      <div class="complejo-name">Hydra Performance</div>
-      <div class="complejo-desc">Sodio, potasio y magnesio bisglicinato (40% absorción vs 4% del óxido). Hidratación que el cuerpo realmente aprovecha.</div>
-    </div>
-    <div class="complejo-card">
-      <div class="complejo-num">02</div>
-      <div class="complejo-name">Focus & Energy</div>
-      <div class="complejo-desc">L-teanina Suntheanine® + cafeína natural en ratio 2:1. Energía limpia, sin el crash de las 4pm.</div>
-      <span class="complejo-tag">Suntheanine® 100% pura</span>
-    </div>
-    <div class="complejo-card">
-      <div class="complejo-num">03</div>
-      <div class="complejo-name">Performance</div>
-      <div class="complejo-desc">Creatina Creapure® + taurina. La creatina más pura del mercado, en dosis efectiva real.</div>
-      <span class="complejo-tag">Creapure® 99,9%</span>
-    </div>
-    <div class="complejo-card">
-      <div class="complejo-num">04</div>
-      <div class="complejo-name">Stress & Recovery</div>
-      <div class="complejo-desc">KSM-66® ashwagandha, ≥5% withanólidos. Porque recuperarse también es cosa de la mente.</div>
-      <span class="complejo-tag">KSM-66® clínico</span>
-    </div>
+  <div class="how">
+    <h3>Cómo se toma</h3>
+    <ol>
+      <li><strong>Una cucharada</strong> (8,5 g) en 200 ml de agua.</li>
+      <li><strong>Cada mañana</strong>, antes del café o en lugar del segundo. Lleva 100 mg de cafeína natural, así que tómalo antes del mediodía.</li>
+      <li><strong>30 tomas por bote</strong>, sabor limón/lima y sin azúcar. 1,67 € al día al precio normal.</li>
+    </ol>
   </div>
-</div>
+</section>
 
-<!-- ══ FOUNDER NOTE ══ -->
-<div class="wrap">
-  <div class="divider"></div>
-  <div class="founder-box">
-    <div class="founder-quote">"Empecé Voltrix porque estaba cansado de tener cuatro botes distintos en la cocina y ninguno de ellos tomándolo de verdad. Quería una sola cosa que hiciera bien lo que cuatro hacían a medias — con dosis reales, no de escaparate."</div>
-    <div class="founder-sign">— Ayoub Mitxelena, fundador de <span>Voltrix</span></div>
+<!-- OFERTA -->
+<section class="wrap section" id="oferta">
+  <p class="eyebrow">Qué recibes al apuntarte</p>
+  <h2>Dos regalos hoy.<br><em>Y el primer puesto el día del lanzamiento.</em></h2>
+  <p class="lead">Estar en la lista no cuesta nada ni te compromete a comprar.</p>
+  <div class="gifts">
+    <div class="gift"><p class="big">−25 %</p><h3>Descuento de lanzamiento</h3><p>En tu primer pedido, solo para quienes estáis en la lista. De 49,99 € a 37,49 €. Te avisamos por email en cuanto se pueda comprar.</p></div>
+    <div class="gift"><p class="big">8 cap.</p><h3>Guía de Rendimiento Diario</h3><p>Por qué llegas al mediodía sin energía aunque hagas todo bien, los errores más comunes de hidratación, energía y recuperación, y cómo corregirlos desde hoy. Te llega al apuntarte.</p></div>
+    <div class="gift"><p class="big">1.º</p><h3>Acceso antes que nadie</h3><p>El primer lote es de pocas unidades. La lista de espera entra antes que el público general.</p></div>
   </div>
-</div>
-
-<!-- ══ FAQ ══ -->
-<div class="wrap">
-  <div class="divider"></div>
-  <div class="section-label">Antes de que lo preguntes</div>
-  <h2 class="section-title">Dudas rápidas</h2>
-
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary>¿44,99€ no es caro para un suplemento?</summary>
-      <p>Son 1,50€ al día — menos que un café. Y cubre hidratación, energía, creatina y recuperación en una sola toma, en vez de cuatro botes distintos.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿La creatina necesita dosis de carga?</summary>
-      <p>No. Usamos Creapure®, la creatina monohidrato más pura del mercado. Con 3g diarios consistentes los depósitos se saturan en 21-28 días — la constancia importa más que la carga.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Puedo tomarlo si ya tomo café?</summary>
-      <p>Sí, con moderación. Voltrix lleva 100mg de cafeína natural. Si eres sensible, tómalo antes del mediodía.</p>
-    </details>
-    <details class="faq-item">
-      <summary>¿Cuándo notaré los resultados?</summary>
-      <p>Energía y foco desde el primer día. Hidratación en la primera semana. Creatina y KSM-66® a partir de las 2-4 semanas de toma diaria consistente.</p>
-    </details>
+  <div class="card">
+    <h3 class="serif" style="font-size:22px;text-align:center;margin:0 0 16px;">Apúntate en 10 segundos</h3>
+    <form class="wl-form" data-wl-form novalidate>
+  <div class="wl-form__row">
+    <label class="wl-sr" for="wl-email-oferta">Tu email</label>
+    <input type="email" id="wl-email-oferta" name="email" placeholder="tu@email.com" autocomplete="email" required data-wl-email>
+    <button type="submit" data-wl-btn>Unirme a la lista →</button>
   </div>
-</div>
-
-<!-- ══ CTA FINAL ══ -->
-<div class="wrap">
-  <div class="divider"></div>
-  <div class="cta-final">
-    <div class="section-label">Última llamada</div>
-    <h2 class="section-title">Sé de los primeros.<br><em>Guía gratis + 15% de dto. de fundador.</em></h2>
-    <a href="#wl-top" class="submit-btn" style="display:inline-block; width:auto; padding:15px 32px; text-decoration:none;" data-wl-scroll-focus>Únete a la lista de espera →</a>
+  <label class="wl-form__consent">
+    <input type="checkbox" required data-wl-consent>
+    <span>Acepto recibir emails de Voltrix (la guía, mi descuento y el aviso de lanzamiento). Puedes darte de baja cuando quieras. <a href="{{ pages.politicas.url | default: '#' }}#privacidad">Política de privacidad</a>.</span>
+  </label>
+  <p class="wl-msg wl-msg--err" data-wl-err role="alert" hidden></p>
+  <p class="wl-msg wl-msg--ok" data-wl-ok role="status" hidden>¡Estás dentro! Revisa tu email: ahí van tu guía y tu 25 %. Si no lo ves en unos minutos, mira en promociones o spam.</p>
+</form>
   </div>
-</div>
+</section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FUNDADOR -->
+<section class="wrap section">
+  <div class="founder">
+    <q>Empecé Voltrix porque estaba cansado de tener cuatro botes distintos en la cocina y no tomar ninguno de verdad. Quería una sola cosa que hiciera bien lo que cuatro hacían a medias, con dosis reales y escritas en la etiqueta.</q>
+    <p class="sign">— Ayoub Mitxelena, fundador de <span>Voltrix</span></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="wrap section" id="preguntas">
+  <p class="eyebrow" style="text-align:center;">Preguntas frecuentes</p>
+  <h2 style="text-align:center;">Antes de que lo preguntes</h2>
+  <div class="faq" style="margin-top:28px;">
+    <details><summary>¿Cuándo sale Voltrix?</summary><p>Todavía no tenemos fecha cerrada: estamos terminando el registro sanitario y validando la producción. No lo lanzaremos hasta que todo esté en regla. Estar en la lista es la forma de enterarte el primero.</p></details>
+    <details><summary>¿Tengo que comprar algo?</summary><p>No. Apuntarte es gratis y no te compromete a nada. El descuento es una ventaja para cuando se pueda comprar.</p></details>
+    <details><summary>¿Cómo uso mi 25 %?</summary><p>Te llega por email al apuntarte, con el código de lanzamiento. Se aplica en tu primer pedido, directamente en el pago, cuando abramos las ventas.</p></details>
+    <details><summary>¿Qué recibo exactamente por email?</summary><p>La Guía de Rendimiento Diario al apuntarte, tu descuento y el aviso del lanzamiento. Sin spam: si no te interesa, te das de baja con un clic.</p></details>
+    <details><summary>¿Para quién es Voltrix?</summary><p>Para quien tiene una vida exigente: trabaja muchas horas, entrena con constancia y no quiere gestionar cuatro botes. No es para atletas de competición, ni para menores de 18 años, ni para embarazadas o en lactancia. Si tomas medicación o tienes una condición médica, consúltalo con tu médico.</p></details>
+    <details><summary>¿Cuánto costará?</summary><p>49,99 € el bote de 30 tomas (1,67 € al día). Con tu descuento de lanzamiento, 37,49 € en el primer pedido.</p></details>
+    <details><summary>¿Qué hacéis con mi email?</summary><p>Solo lo usamos para enviarte lo que has pedido y avisarte del lanzamiento. No lo vendemos ni lo cedemos. Más detalle en nuestra política de privacidad.</p></details>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="wrap section">
+  <div class="close">
+    <p class="eyebrow">Si no cambias nada</p>
+    <h2>Mañana también habrá un café a las 9.</h2>
+    <p class="t">Y un bajón a las 3, y otro bote a medias en el armario. Si te apuntas hoy: una guía para empezar a corregirlo ya y un 25 % para cuando Voltrix esté listo. Si no, todo sigue igual.</p>
+    <p class="m">«Mañana lo hago mejor» lleva meses en tu cabeza. Esta vez, que sea hoy.</p>
+    <form class="wl-form" data-wl-form novalidate>
+  <div class="wl-form__row">
+    <label class="wl-sr" for="wl-email-cierre">Tu email</label>
+    <input type="email" id="wl-email-cierre" name="email" placeholder="tu@email.com" autocomplete="email" required data-wl-email>
+    <button type="submit" data-wl-btn>Quiero mi 25 % y la guía →</button>
+  </div>
+  <label class="wl-form__consent">
+    <input type="checkbox" required data-wl-consent>
+    <span>Acepto recibir emails de Voltrix (la guía, mi descuento y el aviso de lanzamiento). Puedes darte de baja cuando quieras. <a href="{{ pages.politicas.url | default: '#' }}#privacidad">Política de privacidad</a>.</span>
+  </label>
+  <p class="wl-msg wl-msg--err" data-wl-err role="alert" hidden></p>
+  <p class="wl-msg wl-msg--ok" data-wl-ok role="status" hidden>¡Estás dentro! Revisa tu email: ahí van tu guía y tu 25 %. Si no lo ves en unos minutos, mira en promociones o spam.</p>
+</form>
+  </div>
+</section>
+
 <div class="footer">
-  <img src="{{ 'logo-voltrix.png' | asset_url }}" alt="Voltrix" class="wl-logo-img">
-  <p class="footer-note" style="margin-top:14px;">Una sola toma para vida exigente. Lanzamiento próximamente.</p>
-  <div class="footer-links">
-    <a href="{{ pages.politicas.url | default: '#' }}" class="footer-policy-link">Políticas legales</a>
-    <span class="footer-links-dot">·</span>
-    <a href="{{ pages.contacto.url | default: 'mailto:hola@getvoltrix.es' }}" class="footer-policy-link">Contacto</a>
+  <img src="{{ 'logo-voltrix.png' | asset_url }}" alt="Voltrix" width="90" height="22">
+  <p>Una sola toma para vida exigente. Lanzamiento próximamente.</p>
+  <div class="links">
+    <a href="{{ pages.politicas.url | default: '#' }}">Políticas legales</a><span>·</span>
+    <a href="{{ pages.contacto.url | default: 'mailto:hola@getvoltrix.es' }}">Contacto</a>
   </div>
-</div>
-
 </div>
 
 <script>
-  (function () {
-    var link = document.querySelector('[data-wl-scroll-focus]');
-    if (!link) return;
-    link.addEventListener('click', function () {
-      setTimeout(function () {
-        var input = document.getElementById('wl-name');
-        if (input) input.focus();
-      }, 400);
+(function () {
+  var COMPANY = 'UzyR6k', LIST = 'RcP3p8';
+  document.querySelectorAll('[data-wl-form]').forEach(function (form) {
+    var email = form.querySelector('[data-wl-email]'), consent = form.querySelector('[data-wl-consent]');
+    var btn = form.querySelector('[data-wl-btn]'), err = form.querySelector('[data-wl-err]');
+    var label = btn.textContent;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); err.hidden = true;
+      if (!/^\S+@\S+\.\S+$/.test(email.value)) { err.textContent = 'Revisa tu email: no parece válido.'; err.hidden = false; return; }
+      if (!consent.checked) { err.textContent = 'Marca la casilla para poder enviarte la guía y el descuento.'; err.hidden = false; return; }
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + COMPANY, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'revision': '2026-07-15' },
+        body: JSON.stringify({ data: { type: 'subscription',
+          attributes: { profile: { data: { type: 'profile', attributes: { email: email.value, properties: { fuente: 'lista-espera', oferta: 'lanzamiento-25' } } } } },
+          relationships: { list: { data: { type: 'list', id: LIST } } } } })
+      }).then(function (res) {
+        if (!res.ok && res.status !== 202) throw new Error('klaviyo');
+        document.querySelectorAll('[data-wl-form]').forEach(function (f) {
+          f.querySelector('.wl-form__row').hidden = true; f.querySelector('.wl-form__consent').hidden = true;
+          f.querySelector('[data-wl-err]').hidden = true; f.querySelector('[data-wl-ok]').hidden = false;
+        });
+      }).catch(function () {
+        err.textContent = 'Ha habido un error. Inténtalo de nuevo en un momento.'; err.hidden = false;
+        btn.disabled = false; btn.textContent = label;
+      });
     });
-  })();
+  });
+})();
 </script>
-
+</div>
 {% schema %}
 { "name": "Lista de espera", "settings": [] }
 {% endschema %}
