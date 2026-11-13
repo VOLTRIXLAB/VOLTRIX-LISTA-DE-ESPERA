@@ -256,6 +256,31 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
 <script>
 (function () {
   var COMPANY = 'UzyR6k', LIST = 'RcP3p8';
+  var PIXEL = '1149689228020257', leadSent = false;
+  /* Evento Lead de Meta: solo tras el alta correcta y solo si el visitante ha aceptado marketing (misma regla que el píxel de Shopify). */
+  function trackLead() {
+    if (leadSent) return;
+    var run = function () {
+      try {
+        var cp = window.Shopify && window.Shopify.customerPrivacy;
+        if (!cp || typeof cp.marketingAllowed !== 'function' || !cp.marketingAllowed()) return;
+        if (!window.fbq) {
+          (function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+            t = b.createElement(e); t.async = true; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+          })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        }
+        window.fbq('init', PIXEL);
+        window.fbq('track', 'Lead', { content_name: 'Guía de Rendimiento Diario', content_category: 'lista-de-espera' }, { eventID: 'lead-' + Date.now() });
+        leadSent = true;
+      } catch (e) {}
+    };
+    try {
+      if (window.Shopify && window.Shopify.customerPrivacy) run();
+      else if (window.Shopify && window.Shopify.loadFeatures) window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (err) { if (!err) run(); });
+    } catch (e) {}
+  }
   document.querySelectorAll('[data-wl-form]').forEach(function (form) {
     var email = form.querySelector('[data-wl-email]'), consent = form.querySelector('[data-wl-consent]');
     var btn = form.querySelector('[data-wl-btn]'), err = form.querySelector('[data-wl-err]');
@@ -273,6 +298,7 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
           relationships: { list: { data: { type: 'list', id: LIST } } } } })
       }).then(function (res) {
         if (!res.ok && res.status !== 202) throw new Error('klaviyo');
+        trackLead();
         document.querySelectorAll('[data-wl-form]').forEach(function (f) {
           f.querySelector('.wl-form__row').hidden = true; f.querySelector('.wl-form__consent').hidden = true;
           f.querySelector('[data-wl-err]').hidden = true; f.querySelector('[data-wl-ok]').hidden = false;
