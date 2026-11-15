@@ -257,13 +257,45 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
 (function () {
   var COMPANY = 'UzyR6k', LIST = 'RcP3p8';
   var PIXEL = '1149689228020257', leadSent = false;
-  /* Evento Lead de Meta: solo tras el alta correcta y solo si el visitante ha aceptado marketing (misma regla que el píxel de Shopify). */
-  function trackLead() {
+  /* URL del Worker de la API de conversiones (ver /capi-worker en el repo voltrix-meta-capi). Vacío = solo navegador. */
+  var CAPI_URL = '';
+
+  function newEventId() {
+    try { if (window.crypto && crypto.randomUUID) return 'lead-' + crypto.randomUUID(); } catch (e) {}
+    return 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+  }
+  function readCookie(name) {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+  function getFbc() {
+    var c = readCookie('_fbc');
+    if (c) return c;
+    var q = /[?&]fbclid=([^&#]+)/.exec(location.search);
+    return q ? 'fb.1.' + Date.now() + '.' + q[1] : '';
+  }
+  /* Ejecuta cb(true|false) según si el visitante ha aceptado marketing (misma regla que el píxel de Shopify). */
+  function withMarketingConsent(cb) {
+    var check = function () {
+      try { var cp = window.Shopify.customerPrivacy; cb(!!(cp && typeof cp.marketingAllowed === 'function' && cp.marketingAllowed())); }
+      catch (e) { cb(false); }
+    };
+    try {
+      if (window.Shopify && window.Shopify.customerPrivacy) check();
+      else if (window.Shopify && window.Shopify.loadFeatures) window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (err) { err ? cb(false) : check(); });
+      else cb(false);
+    } catch (e) { cb(false); }
+  }
+  /* Un solo Lead por alta: mismo eventID en el navegador (píxel) y en el servidor (API de conversiones) para que Meta los deduplique. */
+  function trackLead(emailValue) {
     if (leadSent) return;
-    var run = function () {
+    leadSent = true;
+    var eventId = newEventId();
+    try { sessionStorage.setItem('vx_lead_event_id', eventId); } catch (e) {}
+    withMarketingConsent(function (allowed) {
+      if (!allowed) return;
       try {
-        var cp = window.Shopify && window.Shopify.customerPrivacy;
-        if (!cp || typeof cp.marketingAllowed !== 'function' || !cp.marketingAllowed()) return;
+        /* Píxel del navegador: se reutiliza el que ya carga Shopify; si no existe, se carga uno solo. */
         if (!window.fbq) {
           (function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
@@ -271,15 +303,22 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
             t = b.createElement(e); t.async = true; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
           })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         }
-        window.fbq('init', PIXEL);
-        window.fbq('track', 'Lead', { content_name: 'Guía de Rendimiento Diario', content_category: 'lista-de-espera' }, { eventID: 'lead-' + Date.now() });
-        leadSent = true;
+        var ready = false;
+        try { ready = !!(window.fbq.getState && window.fbq.getState().pixels.some(function (p) { return p.id === PIXEL; })); } catch (e) {}
+        if (!ready) window.fbq('init', PIXEL);
+        window.fbq('track', 'Lead', { content_name: 'guia-rendimiento' }, { eventID: eventId });
       } catch (e) {}
-    };
-    try {
-      if (window.Shopify && window.Shopify.customerPrivacy) run();
-      else if (window.Shopify && window.Shopify.loadFeatures) window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (err) { if (!err) run(); });
-    } catch (e) {}
+      /* API de conversiones (servidor). Si falla, no afecta al alta en Klaviyo. */
+      if (CAPI_URL) {
+        try {
+          fetch(CAPI_URL, {
+            method: 'POST', keepalive: true, headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: emailValue, eventID: eventId, event_source_url: location.href.split('#')[0],
+              user_agent: navigator.userAgent, fbp: readCookie('_fbp'), fbc: getFbc(), consent: true })
+          }).catch(function () {});
+        } catch (e) {}
+      }
+    });
   }
   document.querySelectorAll('[data-wl-form]').forEach(function (form) {
     var email = form.querySelector('[data-wl-email]'), consent = form.querySelector('[data-wl-consent]');
@@ -298,7 +337,7 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
           relationships: { list: { data: { type: 'list', id: LIST } } } } })
       }).then(function (res) {
         if (!res.ok && res.status !== 202) throw new Error('klaviyo');
-        trackLead();
+        trackLead(email.value);
         document.querySelectorAll('[data-wl-form]').forEach(function (f) {
           f.querySelector('.wl-form__row').hidden = true; f.querySelector('.wl-form__consent').hidden = true;
           f.querySelector('[data-wl-err]').hidden = true; f.querySelector('[data-wl-ok]').hidden = false;
