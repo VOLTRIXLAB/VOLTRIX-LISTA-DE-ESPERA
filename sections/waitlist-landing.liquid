@@ -259,7 +259,7 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
   var COMPANY = 'UzyR6k', LIST = 'RcP3p8';
   var PIXEL = '1149689228020257', leadSent = false;
   /* URL del Worker de la API de conversiones (ver /capi-worker en el repo voltrix-meta-capi). Vacío = solo navegador. */
-  var CAPI_URL = '';
+  var CAPI_URL = 'https://voltrix-capi.hola-cb9.workers.dev';
 
   function newEventId() {
     try { if (window.crypto && crypto.randomUUID) return 'lead-' + crypto.randomUUID(); } catch (e) {}
