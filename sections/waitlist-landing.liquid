@@ -55,7 +55,8 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
 .wl .grid2 { display:grid; grid-template-columns:1fr 1fr; border:1px solid #1E1E38; border-radius:20px; overflow:hidden; }
 .wl .cell { padding:28px 26px; background:rgba(255,255,255,.02); border-right:1px solid #1E1E38; border-bottom:1px solid #1E1E38; }
 .wl .cell:nth-child(2n) { border-right:none; }
-.wl .cell:nth-child(3), .wl .cell:nth-child(4) { border-bottom:none; }
+.wl .cell:last-child { border-bottom:none; }
+.wl .cell--full { grid-column:1 / -1; border-right:none; }
 .wl .hora { font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--volt); margin-bottom:10px; }
 .wl .cell h3 { font-size:16px; font-weight:800; margin:0 0 7px; line-height:1.3; }
 .wl .cell p { font-size:13px; color:var(--w70); line-height:1.65; margin:0 0 10px; }
@@ -151,12 +152,13 @@ html, body { overflow-x:hidden; max-width:100%; margin:0; }
 <section class="wrap section" id="problema">
   <p class="eyebrow">El problema</p>
   <h2>No es que tengas poca energía.<br><em>Es que nadie te lo está poniendo fácil.</em></h2>
-  <p class="lead">Haces todo bien: comes, duermes, entrenas. Y aun así tu día tiene siempre los mismos cuatro momentos.</p>
+  <p class="lead">Haces todo bien: comes, duermes, entrenas. Y aun así tu día tiene siempre los mismos cinco momentos.</p>
   <div class="grid2">
     <div class="cell"><p class="hora">9:00</p><h3>El café ya no te despierta igual</h3><p>Lo tomas, notas un pico y en una hora estás igual que antes. La cafeína sola, sin nada que la acompañe, va a picos.</p><span class="tag">Culpable: cafeína sola</span></div>
     <div class="cell"><p class="hora">12:00</p><h3>Bebes agua pero sigues con sed</h3><p>El agua sola no repone lo que pierdes. Sin sodio, potasio y magnesio en dosis útiles, te hidratas menos de lo que crees.</p><span class="tag">Culpable: agua sin electrolitos</span></div>
     <div class="cell"><p class="hora">15:00</p><h3>El bajón inevitable de la tarde</h3><p>Llegas a media tarde sin depósito, con otro café a medio camino y la lista a medias.</p><span class="tag">Culpable: foco sin L-teanina</span></div>
     <div class="cell"><p class="hora">19:00</p><h3>El gym que no rinde como antes</h3><p>Semanas con los mismos pesos. No es la rutina ni las ganas: tu cuerpo rinde con lo que le das, y a media tarde ya no queda nada.</p><span class="tag">Culpable: entreno sin creatina</span></div>
+    <div class="cell cell--full"><p class="hora">22:00</p><h3>Cierras el portátil, pero la cabeza no</h3><p>Sigues dándole vueltas a lo de hoy y a lo de mañana. Llevas el día entero en tensión y a la noche todavía no has bajado el ritmo.</p><span class="tag">Culpable: estrés sin ashwagandha</span></div>
   </div>
 </section>
 
